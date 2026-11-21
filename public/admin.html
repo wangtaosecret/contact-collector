@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>客户线索管理台</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <span class="brand">客户线索管理台</span>
+    <a class="admin-link" href="/">← 返回收集页</a>
+  </div>
+</header>
+
+<main class="wrap main">
+  <section class="card">
+    <h2 style="margin-top:0">管理令牌</h2>
+    <p class="lede" style="margin-bottom:14px">请输入管理员令牌以查看客户提交的信息。令牌只保存在本机浏览器中。</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <input id="token" type="password" placeholder="管理员令牌" style="flex:1;min-width:220px" autocomplete="off">
+      <button id="load-btn" class="btn" type="button">加载</button>
+      <button id="csv-btn" class="btn btn-ghost" type="button">导出 CSV</button>
+    </div>
+    <div id="admin-error" class="alert alert-error" hidden></div>
+  </section>
+
+  <section id="result" hidden>
+    <div class="card" style="margin-top:20px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <strong id="count-text"></strong>
+      <input id="search" type="search" placeholder="搜索姓名 / 手机 / 邮箱 / 公司" style="max-width:320px">
+    </div>
+
+    <div class="card" style="margin-top:14px;padding:0;overflow-x:auto">
+      <table id="leads-table" style="width:100%;border-collapse:collapse;font-size:14px">
+        <thead>
+          <tr style="background:#fafbfc;text-align:left">
+            <th style="padding:12px 14px;border-bottom:1px solid var(--line);white-space:nowrap">编号</th>
+            <th style="padding:12px 14px;border-bottom:1px solid var(--line)">姓名</th>
+            <th style="padding:12px 14px;border-bottom:1px solid var(--line)">手机</th>
+            <th style="padding:12px 14px;border-bottom:1px solid var(--line)">邮箱</th>
+            <th style="padding:12px 14px;border-bottom:1px solid var(--line)">公司</th>
+            <th style="padding:12px 14px;border-bottom:1px solid var(--line)">需求</th>
+            <th style="padding:12px 14px;border-bottom:1px solid var(--line);white-space:nowrap">提交时间</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="/admin.js"></script>
+</body>
+</html>

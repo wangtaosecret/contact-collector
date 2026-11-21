@@ -1,0 +1,16 @@
+{
+  "name": "contact-collector",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "客户联系信息收集网页 — Cloudflare Workers + D1",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute contact-collector-db --remote --file=./schema.sql",
+    "db:init:local": "wrangler d1 execute contact-collector-db --local --file=./schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

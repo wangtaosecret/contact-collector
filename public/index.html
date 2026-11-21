@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>联系我们 — 留下您的联系方式</title>
+<meta name="description" content="填写表单，留下您的联系方式与需求描述，我们会尽快与您取得联系。">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>📝</text></svg>">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <span class="brand">客户信息收集</span>
+    <a class="admin-link" href="/admin.html">管理后台</a>
+  </div>
+</header>
+
+<main class="wrap main">
+  <section class="intro">
+    <h1>留下联系方式，我们主动联系您</h1>
+    <p class="lede">请填写以下信息。我们仅将您的联系方式用于本次咨询沟通，不会用于其他用途，也不会转交给第三方。</p>
+  </section>
+
+  <section class="card">
+    <form id="lead-form" novalidate>
+      <div class="grid">
+        <div class="field">
+          <label for="name">姓名 <span class="req">*</span></label>
+          <input id="name" name="name" type="text" maxlength="80" autocomplete="name" placeholder="您的姓名" required>
+        </div>
+
+        <div class="field">
+          <label for="company">公司 / 机构</label>
+          <input id="company" name="company" type="text" maxlength="120" autocomplete="organization" placeholder="选填">
+        </div>
+
+        <div class="field">
+          <label for="phone">手机号</label>
+          <input id="phone" name="phone" type="tel" maxlength="40" autocomplete="tel" inputmode="tel" placeholder="选填，但需与邮箱至少填一项">
+        </div>
+
+        <div class="field">
+          <label for="email">邮箱</label>
+          <input id="email" name="email" type="email" maxlength="160" autocomplete="email" inputmode="email" placeholder="选填，但需与手机号至少填一项">
+        </div>
+
+        <div class="field">
+          <label for="topic">咨询类型</label>
+          <select id="topic" name="topic" maxlength="40">
+            <option value="产品咨询">产品咨询</option>
+            <option value="商务合作">商务合作</option>
+            <option value="技术支持">技术支持</option>
+            <option value="报价与采购">报价与采购</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="source">您从哪里了解到我们</label>
+          <select id="source" name="source" maxlength="60">
+            <option value="">请选择</option>
+            <option value="搜索引擎">搜索引擎</option>
+            <option value="朋友推荐">朋友推荐</option>
+            <option value="社交媒体">社交媒体</option>
+            <option value="线下活动">线下活动</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">需求描述 <span class="req">*</span></label>
+        <textarea id="message" name="message" rows="5" maxlength="2000" placeholder="请简要描述您的需求或问题，便于我们提前准备" required></textarea>
+        <div class="hint"><span id="char-count">0</span> / 2000</div>
+      </div>
+
+      <!-- 蜜罐字段：正常用户看不到，机器人会误填 -->
+      <div class="hp" aria-hidden="true">
+        <label for="website">请勿填写此项</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div id="form-error" class="alert alert-error" hidden></div>
+
+      <button id="submit-btn" class="btn" type="submit">提交信息</button>
+      <p class="fineprint">提交即表示您同意我们通过您留下的联系方式与您沟通。</p>
+    </form>
+
+    <div id="form-success" class="success" hidden>
+      <div class="success-icon">✓</div>
+      <h2>提交成功</h2>
+      <p>我们已经收到您的信息，将尽快与您联系。</p>
+      <p class="ref">您的编号：<strong id="success-ref"></strong></p>
+      <button id="again-btn" class="btn btn-ghost" type="button">再提交一条</button>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">© <span id="year"></span> 客户信息收集 · 我们珍惜每一次联系</div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>
